@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('client/{id}', 'Api\\ApiClientController@show');
 
 Route::post('client', 'Api\\ApiClientController@store');
+
+Route::post('client/login', 'Api\\ApiClientController@login');

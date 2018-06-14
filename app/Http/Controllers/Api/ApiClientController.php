@@ -38,11 +38,18 @@ class ApiClientController extends Controller
     //
     public function store(Request $request)
     {
+        // check if email is unique
+        $check = Client::where('email', $request->email)->first();
+        if ($check) {
+            return abort(409);
+        }
+
         $client = new Client;
 
         $client->first_name = $request->firstName;
         $client->email = $request->email;
         $client->password = $request->password;
+        $client->balance = 0.00;
 
         $client->save();
 
@@ -94,5 +101,20 @@ class ApiClientController extends Controller
     public function destroy(Client $client)
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        // $client = Client::where([['email' , '=', $request->email], ['password' , '=', $request->password]])->get();
+        $client = Client::where('email', $request->email)
+            ->where('password', $request->password)
+            ->first();
+
+        if ($client) {
+            return new ClientResource($client);
+        } else {
+            return abort(404);
+        }
+
     }
 }
