@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Client;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ClientResource;
+use App\Http\Resources\UserResource;
 
-class ApiClientController extends Controller
+class ApiUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,37 +38,37 @@ class ApiClientController extends Controller
     //
     public function store(Request $request)
     {
-        $client = new Client;
+        $user = new User;
 
-        $client->first_name = $request->firstName;
-        $client->email = $request->email;
-        $client->password = $request->password;
+        $user->first_name = $request->firstName;
+        $user->email = $request->email;
+        $user->password = $request->password;
 
-        $client->save();
+        $user->save();
 
-        return new ClientResource($client);
+        return new UserResource($user);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $client = Client::find($id)->get();
+        $user = User::find($id)->get();
 
-        return new ClientResource($client);
+        return new UserResource($user);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(User $user)
     {
         //
     }
@@ -77,10 +77,10 @@ class ApiClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Client  $client
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -88,10 +88,10 @@ class ApiClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Client  $client
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(User $user)
     {
         //
     }

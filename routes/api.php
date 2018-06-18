@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('client/{id}', 'Api\\ApiClientController@show');
+Route::get('user/{id}', 'Api\\ApiUserController@show');
 
-Route::post('client', 'Api\\ApiClientController@store');
+Route::post('user', 'Api\\ApiUserController@store');
