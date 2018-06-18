@@ -38,11 +38,18 @@ class ApiUserController extends Controller
     //
     public function store(Request $request)
     {
+        // check if email is unique
+        $check = User::where('email', $request->email)->first();
+        if ($check) {
+            return abort(409);
+        }
+
         $user = new User;
 
         $user->first_name = $request->firstName;
         $user->email = $request->email;
         $user->password = $request->password;
+        $user->balance = 0.00;
 
         $user->save();
 
@@ -94,5 +101,20 @@ class ApiUserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        // $user = User::where([['email' , '=', $request->email], ['password' , '=', $request->password]])->get();
+        $user = User::where('email', $request->email)
+            ->where('password', $request->password)
+            ->first();
+
+        if ($user) {
+            return new UserResource($user);
+        } else {
+            return abort(404);
+        }
+
     }
 }
