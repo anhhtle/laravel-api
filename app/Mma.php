@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Client extends Model
+class Mma extends Model
 {
     use SoftDeletes;
-    
+
     /**
      * The attributes that should be mutated to dates.
      *
