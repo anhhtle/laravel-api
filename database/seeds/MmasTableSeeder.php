@@ -23,6 +23,7 @@ class MmasTableSeeder extends Seeder
                 'fighter_two' => 'Shinsho Anzai',
                 'fighter_two_odd' => 350,
                 'event_title' => 'UFC FIGHT NIGHT 132 - SINGAPORE INDOOR STADIUM, KALLANG, SINGAPORE',
+                'image' => 'http://c3.thejournal.ie/media/2013/09/ufc-fight-night-boston-3-390x285.jpg',
                 'time' => '2018-08-19 12:00:00',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -32,6 +33,7 @@ class MmasTableSeeder extends Seeder
                 'fighter_two' => 'Fighter Two',
                 'fighter_two_odd' => 150,
                 'event_title' => 'TEST TITLE',
+                'image' => 'https://signalscv.com/wp-content/uploads/2017/06/Vinc-Pichel-2-web.jpg',
                 'time' => '2018-07-7 17:30:00',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

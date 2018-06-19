@@ -21,6 +21,7 @@ class CreateMmasTable extends Migration
             $table->integer('fighter_two_odd')->nullable(false);
             $table->string('event_title')->nullable(false);
             $table->dateTime('time')->nullable(false);
+            $table->string('email')->nullable();
             $table->string('status')->default(0);
             $table->integer('winner')->nullable();
             $table->timestamps();

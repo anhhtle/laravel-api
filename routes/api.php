@@ -22,3 +22,6 @@ Route::get('user/{id}', 'Api\\ApiUserController@show');
 Route::post('user', 'Api\\ApiUserController@store');
 
 Route::post('user/login', 'Api\\ApiUserController@login');
+
+// mma
+Route::get('mma', 'Api\\ApiMmaController@index');
